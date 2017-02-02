@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER QAutomatron
 
-ENV PROXY_VER=0.8.8
+ENV PROXY_VER=0.8.9
 
 RUN apt-get -q update &&\
 	DEBIAN_FRONTEND=noninteractive &&\
