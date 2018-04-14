@@ -9,12 +9,12 @@ RUN apt-get -q update &&\
 	# Install req software
 	apt-get install -qy --force-yes  build-essential libevent-dev libssl-dev wget &&\
 	# Install 3proxy
-	wget https://github.com/z3APA3A/3proxy/archive/3proxy-${PROXY_VER}.tar.gz &&\
-	tar xzfv 3proxy-${PROXY_VER}.tar.gz -C /tmp &&\
+	wget https://github.com/z3APA3A/3proxy/archive/${PROXY_VER}.tar.gz &&\
+	tar xzfv ${PROXY_VER}.tar.gz -C /tmp &&\
 	# Enable anonymous mode
-	echo '#define ANONYMOUS 1' >> /tmp/3proxy-3proxy-${PROXY_VER}/src/3proxy.h &&\
-	make -C /tmp/3proxy-3proxy-${PROXY_VER} -f Makefile.Linux &&\
-	make -C /tmp/3proxy-3proxy-${PROXY_VER} -f Makefile.Linux install &&\
+	echo '#define ANONYMOUS 1' >> /tmp/3proxy-${PROXY_VER}/src/3proxy.h &&\
+	make -C /tmp/3proxy-${PROXY_VER} -f Makefile.Linux &&\
+	make -C /tmp/3proxy-${PROXY_VER} -f Makefile.Linux install &&\
 	rm 3proxy-${PROXY_VER}.tar.gz &&\
 	# For log to stdout
 	ln -sf /dev/stdout /var/log/3proxy.log &&\
