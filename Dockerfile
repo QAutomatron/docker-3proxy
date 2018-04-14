@@ -15,7 +15,7 @@ RUN apt-get -q update &&\
 	echo '#define ANONYMOUS 1' >> /tmp/3proxy-${PROXY_VER}/src/3proxy.h &&\
 	make -C /tmp/3proxy-${PROXY_VER} -f Makefile.Linux &&\
 	make -C /tmp/3proxy-${PROXY_VER} -f Makefile.Linux install &&\
-	rm 3proxy-${PROXY_VER}.tar.gz &&\
+	rm ${PROXY_VER}.tar.gz &&\
 	# For log to stdout
 	ln -sf /dev/stdout /var/log/3proxy.log &&\
 	# Clean
